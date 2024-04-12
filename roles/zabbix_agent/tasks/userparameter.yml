@@ -66,7 +66,7 @@
         - restart mac zabbix agent
       become: true
       with_items: "{{ zabbix_agent_userparameters }}"
-      when: item.scripts_dir is undefined
+      when: item.scripts_dir is not defined
 
     - name: "Installing user-defined scripts"
       ansible.builtin.copy:
